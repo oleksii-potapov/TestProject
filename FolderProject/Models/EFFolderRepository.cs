@@ -56,12 +56,13 @@ namespace FolderProject.Models
 
         public IEnumerable<Folder> GetChildFolders(Folder folder)
         {
-            return folder.ChildFolders;
+            Folder fd = _context.Folders.Include("ChildFolders").FirstOrDefault(f => f.Name == folder.Name);
+            return fd.ChildFolders;
         }
 
         public Folder GetFolderByName(string name)
         {
-            return _context.Folders.FirstOrDefault(f => f.Name == name);
+            return _context.Folders.Include("ChildFolders").FirstOrDefault(f => f.Name == name);
         }
     }
 }
