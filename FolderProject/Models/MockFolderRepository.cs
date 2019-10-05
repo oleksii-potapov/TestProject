@@ -20,12 +20,12 @@ namespace FolderProject.Models
 
         public IEnumerable<Folder> GetChildFolders(Folder folder)
         {
-            throw new NotImplementedException();
+            return folder.ChildFolders;
         }
 
         public Folder GetFolderByName(string name)
         {
-            throw new NotImplementedException();
+            return _folders.FirstOrDefault(f => f.Name == name);
         }
     }
 }

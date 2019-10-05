@@ -17,11 +17,11 @@ namespace FolderProject.Models
         [NotMapped]
         public string CurrentPath => $"{ParentPath}/{Name}";
 
-        public ICollection<Folder> Childs { get; set; }
+        public ICollection<Folder> ChildFolders { get; set; }
 
         public Folder()
         {
-            Childs = new List<Folder>();
+            ChildFolders = new List<Folder>();
         }
     }
 }
