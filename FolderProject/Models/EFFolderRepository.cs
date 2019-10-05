@@ -40,7 +40,7 @@ namespace FolderProject.Models
 
         public Folder GetFolderByName(string name)
         {
-            return _context.Folders.First(f => f.Name == name);
+            return _context.Folders.FirstOrDefault(f => f.Name == name);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace FolderProject.Controllers
 {
     public class HomeController : Controller
     {
-        public IFolderRepository Repository { get; set; } = new MockFolderRepository();
+        public IFolderRepository Repository { get; set; } = new EFFolderRepository();
 
         public ViewResult Index(string catchall)
         {

@@ -13,12 +13,19 @@
     <title>Index</title>
 </head>
 <body>
-    <h1>Folder: @Model.Name</h1>
-    <p><a href="@Model.ParentPath">Back</a></p>
-
-    @foreach (var item in Model.ChildFolders)
+    @if (Model != null)
     {
-        <p><a href="@item.CurrentPath">@item.Name</a></p>
+        <h1>Folder: @Model.Name</h1>
+        <p><a href="@Model.ParentPath">Back</a></p>
+
+        foreach (var item in Model.ChildFolders)
+        {
+            <p><a href="@item.CurrentPath">@item.Name</a></p>
+        }
+    }
+    else
+    {
+        <h1>No data to show</h1>
     }
 </body>
 </html>
