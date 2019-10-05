@@ -1,4 +1,7 @@
-﻿@{
+﻿@using FolderProject.Models
+@model Folder
+
+@{
     Layout = null;
 }
 
@@ -10,6 +13,12 @@
     <title>Index</title>
 </head>
 <body>
-    <h1>Index</h1>
+    <h1>Folder: @Model.Name</h1>
+    <p><a href="@Model.ParentPath">Back</a></p>
+
+    @foreach (var item in Model.ChildFolders)
+    {
+        <p><a href="@item.CurrentPath">@item.Name</a></p>
+    }
 </body>
 </html>
