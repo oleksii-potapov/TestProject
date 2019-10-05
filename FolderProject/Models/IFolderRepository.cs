@@ -13,5 +13,7 @@ namespace FolderProject.Models
         IEnumerable<Folder> GetChildFolders(Folder folder);
 
         Folder AddFolder(string name, Folder parent = null);
+
+        void AddChild(Folder parent, Folder child);
     }
 }

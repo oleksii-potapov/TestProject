@@ -13,9 +13,27 @@ namespace FolderProject.Models
         {
         }
 
+        public void AddChild(Folder parent, Folder child)
+        {
+            parent.ChildFolders.Add(child);
+        }
+
         public Folder AddFolder(string name, Folder parent = null)
         {
-            throw new NotImplementedException();
+            Folder folder = new Folder { Name = name };
+            _folders.Add(folder);
+
+            if (parent == null)
+            {
+                folder.ParentPath = "";
+            }
+            else
+            {
+                folder.ParentPath = parent.CurrentPath.TrimEnd('/');
+                AddChild(GetFolderByName(parent.Name), folder);
+            }
+
+            return folder;
         }
 
         public IEnumerable<Folder> GetChildFolders(Folder folder)
