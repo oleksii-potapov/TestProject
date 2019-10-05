@@ -109,6 +109,7 @@
     <Compile Include="Models\ApplicationContext.cs" />
     <Compile Include="Models\Folder.cs" />
     <Compile Include="Models\IFolderRepository.cs" />
+    <Compile Include="Models\MockFolderRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
