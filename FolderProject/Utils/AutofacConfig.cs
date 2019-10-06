@@ -20,6 +20,8 @@ namespace FolderProject.Utils
             builder.RegisterType<EFFolderRepository>()
                 .As<IFolderRepository>();
 
+            builder.RegisterType<ApplicationContext>();
+
             var container = builder.Build();
 
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

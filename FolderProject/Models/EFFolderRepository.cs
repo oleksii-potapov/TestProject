@@ -7,10 +7,11 @@ namespace FolderProject.Models
 {
     public class EFFolderRepository : IFolderRepository
     {
-        private ApplicationContext _context = new ApplicationContext();
+        private ApplicationContext _context;
 
-        public EFFolderRepository()
+        public EFFolderRepository(ApplicationContext context)
         {
+            _context = context;
             if (_context.Folders.Count() == 0)
                 InitializeDb();
         }
