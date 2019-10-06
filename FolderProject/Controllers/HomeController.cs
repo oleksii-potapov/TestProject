@@ -9,14 +9,19 @@ namespace FolderProject.Controllers
 {
     public class HomeController : Controller
     {
-        public IFolderRepository Repository { get; set; } = new EFFolderRepository();
+        private readonly IFolderRepository _repository;
+
+        public HomeController(IFolderRepository repository)
+        {
+            _repository = repository;
+        }
 
         public ViewResult Index(string catchall)
         {
             if (catchall == null)
-                return View(Repository.GetFolderByName(""));
+                return View(_repository.GetFolderByName(""));
             else
-                return View(Repository.GetFolderByName(GetNameFromCatchall(catchall)));
+                return View(_repository.GetFolderByName(GetNameFromCatchall(catchall)));
         }
 
         private string GetNameFromCatchall(string catchall)
